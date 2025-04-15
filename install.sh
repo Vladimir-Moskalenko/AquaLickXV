@@ -1,6 +1,6 @@
 #!/bin/zsh
 # AquaLickXV installer script
-# v. 1.0.2 v2
+# v. 1.0.2 v3
 
 # Versioning cheatsheet:
 # - Major: significant changes; rewrites; adding a GUI
@@ -171,11 +171,17 @@ uninstall()
 	mkdir ~/lvmnt
 	sudo mount -o nobrowse -t apfs $diskID ~/lvmnt
 
-	echo Copying files...
-	cp bkup/Aqua.car ~/lvmnt/System/Library/CoreServices/SystemAppearance.bundle/Contents/Resources/
-	cp bkup/DarkAqua.car ~/lvmnt/System/Library/CoreServices/SystemAppearance.bundle/Contents/Resources/
-	cp bkup/VibrantLight.car ~/lvmnt/System/Library/CoreServices/SystemAppearance.bundle/Contents/Resources/
-	cp bkup/VibrantDark.car ~/lvmnt/System/Library/CoreServices/SystemAppearance .bundle/Contents/Resources/
+	echo "Copying files..."
+	echo "Reverting Aqua.car..."
+	sudo cp bkup/Aqua.car ~/lvmnt/System/Library/CoreServices/SystemAppearance.bundle/Contents/Resources/
+	echo "Reverting DarkAqua.car..."
+	sudo cp bkup/DarkAqua.car ~/lvmnt/System/Library/CoreServices/SystemAppearance.bundle/Contents/Resources/
+	echo "Reverting VibrantLight.car..."
+	sudo cp bkup/VibrantLight.car ~/lvmnt/System/Library/CoreServices/SystemAppearance.bundle/Contents/Resources/
+	echo "Reverting VibrantDark.car..."
+	sudo cp bkup/VibrantDark.car ~/lvmnt/System/Library/CoreServices/SystemAppearance.bundle/Contents/Resources/
+	echo "Reverting Assets.car..."
+	sudo cp bkup/Assets.car ~/lvmnt/System/Library/CoreServices/SystemAppearance.bundle/Contents/Resources/
 
 	echo Creating bootable APFS snapshot with the applied changes..
 	if [[ $(uname -p) == *i386* || $(uname -p) == *x86_64* ]]
