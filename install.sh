@@ -1,11 +1,12 @@
 #!/bin/zsh
 # AquaLickXV installer script
-# v. 1.0.2
+# v. 1.0.2 v2
 
 # Versioning cheatsheet:
 # - Major: significant changes; rewrites; adding a GUI
 # - Semimajor: imortant changes, but not as major, such as improving support; more theming options
 # - Minor: bugfixes, optimization, new features
+# - Semiminor: wen u embarrassing bugs and dont want nobody to know
 
 
 install() 
@@ -52,10 +53,10 @@ install()
 	sudo mount -o nobrowse -t apfs $diskID ~/lvmnt
 
 	echo Copying files...
-	cp Aqua.car ~/lvmnt/System/Library/CoreServices/SystemAppearance.bundle/Contents/Resources/
-	cp DarkAqua.car ~/lvmnt/System/Library/CoreServices/SystemAppearance.bundle/Contents/Resources/
-	cp VibrantLight.car ~/lvmnt/System/Library/CoreServices/SystemAppearance.bundle/Contents/Resources/
-	cp VibrantDark.car ~/lvmnt/System/Library/CoreServices/SystemAppearance.bundle/Contents/Resources/
+	sudo cp Aqua.car ~/lvmnt/System/Library/CoreServices/SystemAppearance.bundle/Contents/Resources/
+	sudo cp DarkAqua.car ~/lvmnt/System/Library/CoreServices/SystemAppearance.bundle/Contents/Resources/
+	sudo cp VibrantLight.car ~/lvmnt/System/Library/CoreServices/SystemAppearance.bundle/Contents/Resources/
+	sudo cp VibrantDark.car ~/lvmnt/System/Library/CoreServices/SystemAppearance.bundle/Contents/Resources/
 
 	echo Creating bootable APFS snapshot with the applied changes..
 	if [[ $(uname -p) == *i386* || $(uname -p) == *x86_64* ]]
@@ -171,10 +172,10 @@ uninstall()
 	sudo mount -o nobrowse -t apfs $diskID ~/lvmnt
 
 	echo Copying files...
-	cp /bkup/Aqua.car ~/lvmnt/System/Library/CoreServices/SystemAppearance.bundle/Contents/Resources/
-	cp /bkup/DarkAqua.car ~/lvmnt/System/Library/CoreServices/SystemAppearance.bundle/Contents/Resources/
-	cp /bkup/VibrantLight.car ~/lvmnt/System/Library/CoreServices/SystemAppearance.bundle/Contents/Resources/
-	cp /bkup/VibrantDark.car ~/lvmnt/System/Library/CoreServices/SystemAppearance .bundle/Contents/Resources/
+	cp bkup/Aqua.car ~/lvmnt/System/Library/CoreServices/SystemAppearance.bundle/Contents/Resources/
+	cp bkup/DarkAqua.car ~/lvmnt/System/Library/CoreServices/SystemAppearance.bundle/Contents/Resources/
+	cp bkup/VibrantLight.car ~/lvmnt/System/Library/CoreServices/SystemAppearance.bundle/Contents/Resources/
+	cp bkup/VibrantDark.car ~/lvmnt/System/Library/CoreServices/SystemAppearance .bundle/Contents/Resources/
 
 	echo Creating bootable APFS snapshot with the applied changes..
 	if [[ $(uname -p) == *i386* || $(uname -p) == *x86_64* ]]
