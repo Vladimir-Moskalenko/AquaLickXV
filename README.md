@@ -55,7 +55,7 @@ reboot
 
 ### .car files
 - [x] Window controls
-- [ ] Contextual items
+- [x] Context menus
 - [ ] Menubar
 - [ ] Toolbar
 - [ ] Other UI elements
