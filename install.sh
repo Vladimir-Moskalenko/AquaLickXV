@@ -1,6 +1,6 @@
 #!/bin/zsh
 # AquaLickXV installer script
-# v. 1.0.2 v3
+# v. 1.1.0 v1
 
 # Versioning cheatsheet:
 # - Major: significant changes; rewrites; adding a GUI
